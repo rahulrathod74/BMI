@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculater</h1>
+        <label >Weigth:</label>
+        <input type="text" id="item1">
+        <label >Height:</label>
+        <input type="text" id="item2">
+        <button class="btn">Calculate</button>
+    </div>
+</body>
+<script>
+    let container=document.querySelector(".container")
+    let weigth=document.querySelector("#item1")
+    let height=document.querySelector("#item2")
+    let btn=document.querySelector(".btn")
+    let h2=document.createElement("h2")
+    
+    btn.addEventListener("click",()=>{
+        let firstweigth=parseInt(weigth.value);
+        console.log(firstweigth);
+        weigth.value="";
+        let secondheight=parseInt(height.value);
+        console.log(secondheight);
+        height.value="";
+        let result=firstweigth/((secondheight/100)*2)
+        let bmi=result
+        var searching="";
+        if(bmi<=18.5){
+            searching="UnderWeight"
+        }
+        else if(bmi > 18.5 && bmi <= 24.9){
+            searching="NormalWeight"
+        }
+        else if(bmi >= 25 && bmi <= 29.9){
+            searching="OverWeight"
+        }
+        else if(bmi>=30){
+            searching="Obese"
+        }
+        h2.innerText=searching+" " + bmi
+        container.append(h2)
+    })
+
+
+</script>
+</html>
